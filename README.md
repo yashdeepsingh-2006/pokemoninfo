@@ -15,6 +15,12 @@ Together, these tools enable a smooth, fast, and interactive user experience acr
 
 ---
 
+## 📁 Project Structure
+
+POKEMONINFO/ ├── node_modules/ # Project dependencies ├── public/ # Public assets ├── src/ │ └── app/ │ ├── components/ # Reusable UI components │ │ ├── footer.js │ │ ├── Main.js │ │ ├── Nav.js │ │ └── Search.js │ ├── direct/ │ │ └── info/ │ │ └── [id]/ # Dynamic routing for individual Pokémon info │ │ └── page.js │ ├── favicon.ico # Website favicon │ ├── globals.css # Global CSS styles │ ├── layout.js # Layout file for pages │ └── page.js # Root/home page ├── .gitignore # Git ignored files ├── eslint.config.mjs # ESLint configuration ├── jsconfig.json # JS path mappings ├── next.config.mjs # Next.js configuration ├── package-lock.json # Dependency lock file ├── package.json # Project metadata and dependencies ├── postcss.config.mjs # PostCSS configuration └── README.md # Project documentation
+
+---
+
 ## 🤝 Collaborators
 
 This project was created by:
