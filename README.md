@@ -25,9 +25,9 @@ POKEMONINFO/ ├── node_modules/ # Project dependencies ├── public/ # 
 
 This project was created by:
 
-- 👨‍💻 Yashdeep singh 
+- 👨‍💻 Yashdeep Singh 
 - 🧑‍💻 Om Kamboj  
-- 👨‍🎨 Rakshit sharma 
-- 🧙‍♂️ Rehan kahnchi
-- 👾 Tarshit
+- 👨‍🎨 Rakshit Sharma 
+- 🧙‍♂️ Rehan Khanchi
+- 👾 Tarshit Gupta
 
