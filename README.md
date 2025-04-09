@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧩 Pokémon Info Explorer
 
-## Getting Started
+**Pokémon Info Explorer** is a web application designed to provide complete and detailed information about any Pokémon. All you have to do is enter the name of a Pokémon, and the app fetches everything you need to know about it — instantly and beautifully displayed.
 
-First, run the development server:
+Whether you're a casual fan or a competitive player, this site gives you quick access to all Pokémon data in one place. This includes stats like HP, Attack, Defense, Speed, and also their types, abilities, weight, height, and image sprites. The data is fetched in real-time from a reliable public API and displayed in a responsive, user-friendly layout.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Built With
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Next.js** – A powerful React framework for building fast, scalable web applications with server-side rendering and routing support.
+- **PokéAPI** – A comprehensive RESTful API providing access to a wide range of Pokémon data including stats, types, abilities, and sprites.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Together, these tools enable a smooth, fast, and interactive user experience across all devices.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Collaborators
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project was created by:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 👨‍💻 Yashdeep singh 
+- 🧑‍💻 Om Kamboj  
+- 👨‍🎨 Rakshit sharma 
+- 🧙‍♂️ Rehan kahnchi
+- 👾 Tarshit
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
