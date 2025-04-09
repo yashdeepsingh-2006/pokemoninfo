@@ -7,7 +7,8 @@ export default function Main() {
 
         {/* div containing search for small screens */}
         <div className="md:hidden mt-14">
-            <Search/>
+            {/* Search to be added here */}
+            abc
         </div>
     </div>
   )
