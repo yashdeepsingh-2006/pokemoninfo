@@ -22,7 +22,9 @@ export default function Nav() {
 
                 {/* div containing search bar */}
                 <div className='hidden md:block mt-1'>
-                    search bar to be added
+                    <Search />
                 </div>
             </nav>
-            
+        </div>
+    )
+}
