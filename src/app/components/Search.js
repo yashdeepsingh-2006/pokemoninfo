@@ -5,12 +5,18 @@ import { useState } from 'react'
 import { useSearch } from '../context/SearchContext'
 
 export default function Search() {
-    const { searchTerm, setSearchTerm } = useSearch();
+    const { searchTerm, setSearchTerm, setSearchQuery } = useSearch();
 
-  const handleSearch = (e) => {
-    
+    const handleSearch = (e) => {
         setSearchTerm(e.target.value);
-  };
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            setSearchQuery(searchTerm); // Triggers the fetch in Home.js
+        }
+    };
+
 
     return (
         <div>
@@ -20,6 +26,7 @@ export default function Search() {
                     className="input shadow-lg text-black border focus:border border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-64 md:focus:w-96 outline-none"
                     value={searchTerm}
                     onChange={handleSearch}
+                    onKeyDown={handleKeyPress}
                     name="search"
                     type="search"
                 />

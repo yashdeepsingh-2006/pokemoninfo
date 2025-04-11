@@ -4,30 +4,22 @@ import React, { useEffect } from 'react'
 import { useSearch } from '../context/SearchContext'
 
 export default function Home() {
-  const { searchTerm, pokemonData, setPokemonData, loading, setLoading, error, setError } = useSearch();
+  const { searchQuery, pokemonData, setPokemonData, setLoading, setError } = useSearch();
+
 
   useEffect(() => {
-    console.log("Search term changed:", searchTerm); // Debug log
-
-    if (!searchTerm) {
-      console.log("No search term, skipping fetch"); // Debug log
-      return;
-    }
-
     const fetchPokemon = async () => {
-      setLoading(true);
+      if (!searchQuery.trim()) return;
+
       try {
-        console.log("Fetching data for:", searchTerm); // Debug log
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`);
-        
-        if (!res.ok) throw new Error('Pokémon not found');
-        
+        setLoading(true);
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchQuery.toLowerCase()}`);
+        if (!res.ok) throw new Error("Pokemon not found");
         const data = await res.json();
-        console.log("Fetched data:", data); // Debug log
         setPokemonData(data);
         setError(null);
       } catch (err) {
-        console.error("Fetch error:", err); // Debug log
+        console.error(err);
         setError(err.message);
         setPokemonData(null);
       } finally {
@@ -36,12 +28,7 @@ export default function Home() {
     };
 
     fetchPokemon();
-  }, [searchTerm, setPokemonData, setError, setLoading]);
-
-  console.log("Current pokemonData:", pokemonData); // Debug log outside useEffect
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  }, [searchQuery]);
 
 
   return (
@@ -52,7 +39,7 @@ export default function Home() {
           <img
             src={pokemonData?.sprites?.other?.['official-artwork']?.front_default || "/Home_logo.png"}
             alt={pokemonData?.name || "Pokémon"}
-            className='object-contain h-60'
+            className='object-contain h-96'
           />
         </div>
       </div>
