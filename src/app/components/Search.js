@@ -1,12 +1,24 @@
+"use client"
+
 import React from 'react'
+import { useState } from 'react'
+import { useSearch } from '../context/SearchContext'
 
 export default function Search() {
+    const { searchTerm, setSearchTerm } = useSearch();
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
     return (
         <div>
             <div className="relative lg:mr-16">
                 <input
                     placeholder="Search..."
                     className="input shadow-lg text-black border focus:border border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-64 md:focus:w-96 outline-none"
+                    value={searchTerm}
+                    onChange={handleSearch}
                     name="search"
                     type="search"
                 />
