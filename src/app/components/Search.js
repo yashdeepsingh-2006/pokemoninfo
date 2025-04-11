@@ -8,7 +8,8 @@ export default function Search() {
     const { searchTerm, setSearchTerm } = useSearch();
 
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    
+        setSearchTerm(e.target.value);
   };
 
     return (
