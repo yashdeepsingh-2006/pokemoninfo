@@ -4,9 +4,21 @@ const SearchContext = createContext();
 
 export function SearchProvider({ children }) {
     const [searchTerm, setSearchTerm] = useState('');
+    const [pokemonData, setPokemonData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     return (
-        <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
+        <SearchContext.Provider value={{ 
+            searchTerm, 
+            setSearchTerm,
+            pokemonData,
+            setPokemonData,
+            loading,
+            setLoading,
+            error,
+            setError
+        }}>
             {children}
         </SearchContext.Provider>
     );
