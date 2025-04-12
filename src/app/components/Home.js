@@ -1,3 +1,6 @@
+// contains the Home component
+// This component fetches and displays information about a Pokémon based on the search query.
+
 "use client"
 
 import React, { useEffect } from 'react'
