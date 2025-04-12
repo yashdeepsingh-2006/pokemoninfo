@@ -1,3 +1,5 @@
+// This file containg footer of the project 
+
 "use client"
 
 import React from 'react';
