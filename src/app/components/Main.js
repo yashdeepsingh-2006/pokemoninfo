@@ -1,11 +1,13 @@
+"use client"
+
 import React from 'react'
 import Search from './Search'
 import Home from './Home'
 
+
 export default function Main() {
   return (
-    <div className='flex flex-col justify-center items-center bg-white text-black'>
-
+    <div className='flex flex-col justify-center items-center pokebg bg-cover bg-center text-black'>
       {/* div containing search for small screens */}
       <div className="md:hidden mt-14">
         <Search />
@@ -13,7 +15,6 @@ export default function Main() {
 
       {/* div containing homepage */}
       <Home />
-
     </div>
   )
 }
