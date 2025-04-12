@@ -13,7 +13,7 @@ export default function Home() {
 
       try {
         setLoading(true);
-        const res = await fetch(https://pokeapi.co/api/v2/pokemon/${searchQuery.toLowerCase()});
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchQuery.toLowerCase()}`);
         if (!res.ok) throw new Error("Pokemon not found");
         const data = await res.json();
         setPokemonData(data);
