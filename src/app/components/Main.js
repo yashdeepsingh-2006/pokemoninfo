@@ -12,7 +12,7 @@ export default function Main() {
         <Search />
       </div>
 
-      {/* div containing homepage */}
+      {/* Div containing homepage */}
       <Home />
     </div>
   )
