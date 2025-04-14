@@ -18,8 +18,8 @@ export async function getPokemonSuggestion(userInput) {
     `;
 
     const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const textResult = await response.text();
+    const response = result.response;
+    const textResult = response.text();
 
     try {
       const cleanJson = textResult.replace(/[\r\n\t]/g, '').match(/\{.*\}/)?.[0];
