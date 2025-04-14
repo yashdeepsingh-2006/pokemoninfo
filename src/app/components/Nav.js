@@ -7,7 +7,7 @@ import Search from './Search'
 export default function Nav() {
     return (
         <div>
-            <nav className='flex flex-row justify-between px-5 py-2 bg-white h-20 w-full'>
+            <nav className='flex flex-row justify-between px-5 py-2 h-20 w-full bg-teal-950 shadow-md'>
 
                 {/* div containing logo */}
                 <div className='w-full ml-10 mt-2'>

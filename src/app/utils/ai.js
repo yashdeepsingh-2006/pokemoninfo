@@ -12,13 +12,14 @@ export async function getPokemonSuggestion(userInput) {
       Given the user input "${userInput}" which might be a misspelled Pokémon name:
       1. Suggest the most likely correct Pokémon name
       2. Provide a brief, engaging description (max 150 characters)
-      3. Return in JSON format: {"name": "correct name", "description": "brief description"}
+      3. Provide an evolution stage (e.g., "1st stage", "2nd stage", "3rd stage") along with their names.
+      4. Return in JSON format: {"name": "correct name", "description": "brief description", "evolution": "evolution stage"}
       If not similar to any Pokémon name, return null.
     `;
 
     const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const textResult = await response.text();
+    const response = result.response;
+    const textResult = response.text();
 
     try {
       const cleanJson = textResult.replace(/[\r\n\t]/g, '').match(/\{.*\}/)?.[0];
