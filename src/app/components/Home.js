@@ -1,77 +1,159 @@
+// Home.js - Main component for displaying Pokemon information
+// This component fetches and displays detailed information about a Pokemon based on user search
+
 "use client"
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearch } from '../context/SearchContext'
+import { getPokemonSuggestion } from '../utils/ai'
+
+// Add before the Home component
+const TYPE_COLORS = {
+  normal: 'bg-gray-400',
+  fire: 'bg-red-500',
+  water: 'bg-blue-500',
+  electric: 'bg-yellow-400',
+  grass: 'bg-green-500',
+  ice: 'bg-blue-200',
+  fighting: 'bg-red-600',
+  poison: 'bg-purple-500',
+  ground: 'bg-yellow-600',
+  flying: 'bg-indigo-400',
+  psychic: 'bg-pink-500',
+  bug: 'bg-lime-500',
+  rock: 'bg-yellow-800',
+  ghost: 'bg-purple-700',
+  dragon: 'bg-indigo-600',
+  dark: 'bg-gray-800',
+  steel: 'bg-gray-500',
+  fairy: 'bg-pink-300'
+};
+
+const NotFoundMessage = () => (
+  <div className='min-h-screen flex flex-col items-center justify-center p-4'>
+    <div className='bg-white rounded-3xl shadow-xl p-8 text-center max-w-md'>
+      <img 
+        src="/Home_logo.png" 
+        alt="Pokemon Logo" 
+        className='w-32 h-32 mx-auto mb-4'
+      />
+      <h2 className='text-2xl font-bold text-gray-800 mb-2'>Pokemon Not Found</h2>
+      <p className='text-gray-600'>Please try searching for a different Pokemon</p>
+    </div>
+  </div>
+);
 
 export default function Home() {
   const { searchQuery, pokemonData, setPokemonData, setLoading, setError } = useSearch();
-
+  const [aiData, setAiData] = useState(null);
+  const [activeView, setActiveView] = useState('official');
 
   useEffect(() => {
-    const fetchPokemon = async () => {
+    const fetchData = async () => {
       if (!searchQuery.trim()) return;
 
       try {
         setLoading(true);
+        
+        // Fetch Pokemon data from PokeAPI
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchQuery.toLowerCase()}`);
-        if (!res.ok) throw new Error("Pokemon not found");
+        if (!res.ok) {
+          setPokemonData(null);
+          setAiData(null);
+          return; // Exit early instead of throwing error
+        }
+        
         const data = await res.json();
+        
+        // Fetch AI-generated data
+        const aiResult = await getPokemonSuggestion(searchQuery);
+        setAiData(aiResult);
+
         setPokemonData(data);
         setError(null);
       } catch (err) {
         console.error(err);
-        setError(err.message);
         setPokemonData(null);
+        setAiData(null);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPokemon();
+    fetchData();
   }, [searchQuery]);
 
+  if (searchQuery && !pokemonData) {
+    return <NotFoundMessage />;
+  }
 
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-center text-black lg:h-screen'>
-      {/* Image */}
-      <div className='lg:w-[45%] w-[75%] md:w-[65%] lg:mt-0 h-full pt-20 lg:py-20 lg:pl-40 '>
-        <div className='flex items-center justify-center bg-white h-full w-full rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl lg:shadow-xl border lg:border-r-0 border-gray-100'>
+    <div className='min-h-screen flex flex-col lg:flex-row items-center justify-center text-black p-4 lg:p-8'>
+      {/* Left section - Pokemon Image */}
+      <div className='lg:w-1/2 w-full max-w-xl lg:pr-8'>
+        <div className='bg-white rounded-3xl shadow-xl p-8 flex items-center justify-center'>
           <img
-            src={pokemonData?.sprites?.other?.['official-artwork']?.front_default || "/Home_logo.png"}
-            alt={pokemonData?.name || "Pokémon"}
-            className='object-contain h-96'
+            src={
+              activeView === 'official'
+                ? pokemonData?.sprites?.other?.['official-artwork']?.front_default
+                : activeView === 'front'
+                ? pokemonData?.sprites?.front_default
+                : pokemonData?.sprites?.back_default || "/Home_logo.png"
+            }
+            alt={`${pokemonData?.name || "Pokémon"} - ${activeView} view`}
+            className='object-contain h-72 lg:h-96 w-auto transition-all duration-300'
           />
+        </div>
+        {/* Sprite Selection */}
+        <div className='flex gap-2 mt-4 justify-center'>
+          {pokemonData?.sprites && (
+            <>
+              <button
+                onClick={() => setActiveView('official')}
+                className={`p-1 rounded-lg transition-all duration-300 ${
+                  activeView === 'official' ? 'ring-2 ring-blue-500' : ''
+                }`}
+              >
+                <img
+                  src={pokemonData.sprites.other?.['official-artwork']?.front_default}
+                  alt="Official artwork"
+                  className='w-16 h-16 object-contain bg-gray-50 rounded-lg p-2'
+                />
+              </button>
+              {pokemonData.sprites.front_default && (
+                <button
+                  onClick={() => setActiveView('front')}
+                  className={`p-1 rounded-lg transition-all duration-300 ${
+                    activeView === 'front' ? 'ring-2 ring-blue-500' : ''
+                  }`}
+                >
+                  <img
+                    src={pokemonData.sprites.front_default}
+                    alt="Front view"
+                    className='w-16 h-16 object-contain bg-gray-50 rounded-lg p-2'
+                  />
+                </button>
+              )}
+              {pokemonData.sprites.back_default && (
+                <button
+                  onClick={() => setActiveView('back')}
+                  className={`p-1 rounded-lg transition-all duration-300 ${
+                    activeView === 'back' ? 'ring-2 ring-blue-500' : ''
+                  }`}
+                >
+                  <img
+                    src={pokemonData.sprites.back_default}
+                    alt="Back view"
+                    className='w-16 h-16 object-contain bg-gray-50 rounded-lg p-2'
+                  />
+                </button>
+              )}
+            </>
+          )}
         </div>
       </div>
 
-      {/* Info Section */}
-      <div className='w-[75%] md:w-[65%] lg:w-[55%] h-full lg:mt-20 lg:py-20 mb-20 lg:pr-40 '>
-        <div className='flex items-center justify-center bg-white h-full w-full rounded-b-3xl lg:rounded-bl-none lg:rounded-r-3xl lg:shadow-xl border lg:border-l-0 border-gray-100'>
-
-          <div className='flex flex-col items-center mt-20 h-full w-full'>
-            {/* Title */}
-            <div className='text-4xl font-bold border-b border-gray-800 capitalize'>
-              {pokemonData?.name || 'Pokemon'}
-            </div>
-
-            {/* Description */}
-            <div className='text-base text-gray-500 mt-4'>
-              {pokemonData?.flavor_text_entries?.[0]?.flavor_text || 'No description available.'}
-            </div>
-
-            <div className='flex flex-col self-start ml-4 md:ml-14 mb-6 md:mb-8 lg:mb-4 lg:ml-20 mt-20 lg:mt-14'>
-              {/* Type */}
-              <div className='text-base'>
-                <span className='font-bold'>Type: </span>
-                {pokemonData?.types?.map((t) => t.type.name).join(', ') || 'N/A'}
-              </div>
-
-              {/* Abilities */}
-              <div className='text-base mt-2'>
-                <span className='font-bold'>Abilities: </span>
-                {pokemonData?.abilities?.map((a) => a.ability.name).join(', ') || 'N/A'}
-              </div>
-              {/* Right section - Pokemon Information with Scroll */}
+      {/* Right section - Pokemon Information with Scroll */}
       <div className='lg:w-1/2 w-full max-w-xl lg:pl-8 mt-8 lg:mt-0'>
         <div className='bg-white rounded-3xl shadow-xl h-[600px] flex flex-col'>
           {/* Pokemon Name Header - Fixed */}
@@ -159,16 +241,6 @@ export default function Home() {
                     <p className='capitalize text-sm'>{move.move.name.replace('-', ' ')}</p>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-              {/* Base Experience */}
-              <div className='text-base mt-2'>
-                <span className='font-bold'>Base experience: </span>
-                {pokemonData?.base_experience || 'N/A'}
               </div>
             </div>
           </div>
