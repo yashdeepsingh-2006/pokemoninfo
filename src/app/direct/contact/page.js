@@ -14,9 +14,8 @@ export default function Contact() {
     e.preventDefault();
     setStatus('sending');
     
-    // Here you would typically send the data to your backend
+    // Simulate API call (replace with actual backend integration if needed)
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
