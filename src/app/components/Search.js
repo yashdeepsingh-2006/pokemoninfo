@@ -40,7 +40,7 @@ export default function Search() {
       <div className="relative lg:mr-16">
         <input
           placeholder="Search Pokémon..."
-          className="input shadow-lg text-black bg-gray-200 border focus:border border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-64 md:focus:w-96 outline-none"
+          className="input shadow-lg text-black bg-white border focus:border border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-64 md:focus:w-96 outline-none"
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
@@ -57,15 +57,6 @@ export default function Search() {
           </svg>
         )}
       </div>
-
-      {suggestion && (
-        <div className="bg-white p-3 rounded-lg shadow-md max-w-md text-sm">
-          <p className="text-gray-700">
-            Showing results for <span className="font-bold text-blue-600">{suggestion.name}</span>
-          </p>
-          <p className="text-gray-600 mt-1">{suggestion.description}</p>
-        </div>
-      )}
     </div>
   )
 }
