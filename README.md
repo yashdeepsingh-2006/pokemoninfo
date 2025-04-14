@@ -21,37 +21,39 @@ A modern web application built with Next.js 14 that lets you explore detailed Po
   - TypeScript configurations
 
 ## 📁 Project Structure
-```
+
 pokemoninfo/
 ├── src/
 │   └── app/
 │       ├── components/
-│       │   ├── Search.js          # Search input component
-│       │   ├── Main.js            # Main layout wrapper
+│       │   ├── Search.js          # Search component with AI suggestions
+│       │   ├── Home.js            # Main Pokemon display component
 │       │   ├── Nav.js             # Navigation bar
-│       │   ├── Footer.js          # Footer with team links
-│       │   └── Home.js            # Homepage component
+│       │   └── Footer.js          # Footer component
 │       ├── context/
 │       │   └── SearchContext.js    # Global state management
+│       ├── utils/
+│       │   └── ai.js              # AI helper functions using Gemini
 │       ├── direct/
-│       │   └── about/
-│       │       └── page.js         # About page
-│       ├── ClientLayout.js         # Client-side layout wrapper
-│       ├── globals.css            # Global styles
-│       ├── layout.js              # Root layout with fonts
+│       │   ├── about/
+│       │   │   └── page.js        # About page
+│       │   └── contact/
+│       │       └── page.js        # Contact form page
+│       ├── globals.css            # Global styles and custom scrollbar
+│       ├── layout.js              # Root layout
 │       └── page.js                # App entry point
 ├── public/
-│   └── assets/                    # Static assets
-├── node_modules/                  # Dependencies
-├── .gitignore                     # Git ignore file
-├── package.json                   # Project configuration
-├── package-lock.json             # Dependency lock file
-├── README.md                     # Project documentation
-├── postcss.config.js            # PostCSS configuration
-├── tailwind.config.js           # Tailwind CSS configuration
-└── eslint.config.mjs            # ESLint configuration
+│   └── assets/
+│       └── Home_logo.png          # Default Pokemon logo
+├── .env.local                     # Environment variables (git-ignored)
+├── .gitignore                     # Git ignore configurations
+├── package.json                   # Project dependencies
+├── package-lock.json              # Dependency lock file
+├── README.md                      # Project documentation
+├── postcss.config.js             # PostCSS configuration
+├── tailwind.config.js            # Tailwind CSS configuration
+└── next.config.mjs               # Next.js configuration
 
-```
 
 ## 🚀 Getting Started
 
