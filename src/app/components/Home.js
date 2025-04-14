@@ -6,8 +6,34 @@
 import React, { useEffect, useState } from 'react'
 import { useSearch } from '../context/SearchContext'
 import { getPokemonSuggestion } from '../utils/ai'
+import Welcome from './Welcome'
 
-// Add before the Home component
+// Add this utility function after imports
+const formatPokemonName = (name) => {
+  if (!name) return '';
+  
+  return name
+    // Handle special character cases
+    .replace(/nidoran♀/gi, 'nidoran-f')
+    .replace(/nidoran♂/gi, 'nidoran-m')
+    .replace(/farfetch'd/gi, 'farfetchd')
+    .replace(/mr\. mime/gi, 'mr-mime')
+    .replace(/mime jr\./gi, 'mime-jr')
+    .replace(/type: null/gi, 'type-null')
+    .replace(/flabébé/gi, 'flabebe')
+    .replace(/porygon-z/gi, 'porygon-z')
+    .replace(/kommo-o/gi, 'kommo-o')
+    // Convert HTML entities back for display
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#9792;/g, '♀')
+    .replace(/&#9794;/g, '♂')
+    .replace(/&eacute;/g, 'é');
+};
+
 const TYPE_COLORS = {
   normal: 'bg-gray-400',
   fire: 'bg-red-500',
@@ -55,18 +81,21 @@ export default function Home() {
       try {
         setLoading(true);
         
+        // Format the name before making the API call
+        const formattedName = formatPokemonName(searchQuery.toLowerCase());
+        
         // Fetch Pokemon data from PokeAPI
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchQuery.toLowerCase()}`);
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${formattedName}`);
         if (!res.ok) {
           setPokemonData(null);
           setAiData(null);
-          return; // Exit early instead of throwing error
+          return;
         }
         
         const data = await res.json();
         
         // Fetch AI-generated data
-        const aiResult = await getPokemonSuggestion(searchQuery);
+        const aiResult = await getPokemonSuggestion(formattedName);
         setAiData(aiResult);
 
         setPokemonData(data);
@@ -82,6 +111,10 @@ export default function Home() {
 
     fetchData();
   }, [searchQuery]);
+
+  if (!searchQuery) {
+    return <Welcome />;
+  }
 
   if (searchQuery && !pokemonData) {
     return <NotFoundMessage />;
