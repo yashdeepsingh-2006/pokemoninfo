@@ -52,7 +52,7 @@ export default function About() {
         <section className="text-center mt-12">
           <h2 className="text-2xl font-semibold mb-4">Get In Touch</h2>
           <p className="text-lg">
-            Have questions or suggestions? We'd love to hear from you!<br />
+            Have questions or suggestions? We&apos;d love to hear from you!<br />
             Contact us at: <a href="mailto:contact@pokemoninfo.com" className="text-blue-600 hover:underline">
               contact@pokemoninfo.com
             </a>

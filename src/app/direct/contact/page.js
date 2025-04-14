@@ -14,9 +14,8 @@ export default function Contact() {
     e.preventDefault();
     setStatus('sending');
     
-    // Here you would typically send the data to your backend
+    // Simulate API call (replace with actual backend integration if needed)
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
@@ -38,7 +37,7 @@ export default function Contact() {
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-gray-900">Contact Us</h2>
           <p className="mt-2 text-sm text-gray-600">
-            Have questions about Pokémon Info? We'd love to hear from you.
+            Have questions about Pokémon Info? We&apos;d love to hear from you.
           </p>
         </div>
 
