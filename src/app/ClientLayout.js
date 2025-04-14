@@ -7,6 +7,7 @@ export default function ClientLayout({ children }) {
   return (
     <SearchProvider>
       <Nav />
+      <hr />
       {children}
       <Footer />
     </SearchProvider>
