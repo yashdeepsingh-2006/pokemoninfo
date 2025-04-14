@@ -47,9 +47,9 @@ export async function getPokemonDescription(pokemonName) {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const prompt = `
-      Provide a brief, two-sentence description of the Pokémon "${pokemonName}".
+      Provide a brief, three-sentence description of the Pokémon "${pokemonName}".
       Include its type and most notable characteristic.
-      Keep it under 100 characters.
+      Keep it under 200 characters.
     `;
 
     const result = await model.generateContent(prompt);
