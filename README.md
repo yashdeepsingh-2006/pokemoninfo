@@ -21,7 +21,7 @@ A modern web application built with Next.js 14 that lets you explore detailed Po
   - TypeScript configurations
 
 ## 📁 Project Structure
-
+```
 pokemoninfo/
 ├── src/
 │   └── app/
@@ -53,7 +53,7 @@ pokemoninfo/
 ├── postcss.config.js             # PostCSS configuration
 ├── tailwind.config.js            # Tailwind CSS configuration
 └── next.config.mjs               # Next.js configuration
-
+```
 
 ## 🚀 Getting Started
 
