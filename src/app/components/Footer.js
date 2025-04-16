@@ -19,8 +19,8 @@ export default function Footer() {
           <a href="https://github.com/rehankhanchi" className="hover:text-gray-400">Rehan Khanchi</a>
         </div>
         <div className="mt-2">
-          <a href="direct/about" className="hover:text-gray-400 px-1">About</a>
-          <a href="direct/contact" className="hover:text-gray-400 px-1">Contact Us</a>
+          <a href="direct/about" className="hover:text-gray-400 px-2.5">About</a>
+          <a href="direct/contact" className="hover:text-gray-400 px-2.5">Contact Us</a>
         </div>
       </div>
     </footer>
