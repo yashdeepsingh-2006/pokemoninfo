@@ -1,22 +1,23 @@
 {
-    "name": "Mystifly",
-    "type": ["psychic", "flying"],
-    "abilities": ["Levitate", "Mind Shield"],
+    "name": "muslmon",
+    "type": ["fire", "flying", "poison"],
+    "abilities": ["Levitate", "blast Shield"],
     "base_stats": {
       "hp": 80,
-      "attack": 60,
-      "defense": 70,
-      "special_attack": 120,
+      "attack": 30,
+      "defense": 100,
+      "special_attack": 200,
       "special_defense": 90,
       "speed": 100
     },
-    "height": 1.2,
-    "weight": 25.5,
-    "description": "Mystifly is a mystical Pokémon that soars through the skies, using its psychic powers to calm storms and protect its habitat.",
+    "height": 1.5,
+    "weight": 56.5,
+    "description": "muslmon is a mystical Pokémon that soars through the skies, using its psychic powers to calm storms and protect its habitat.",
     "evolution": {
       "stage": "2nd stage",
-      "pre_evolution": "Mystibug",
+      "pre_evolution": "helimulla",
       "next_evolution": null
     },
-    "moves": ["Psychic", "Air Slash", "Calm Mind", "Roost"]
-  }
+    "moves": ["Psychic", "building Slash", "timebomb", "backflip"],
+    "image": "https://i.pinimg.com/736x/10/e0/a5/10e0a55ee5a2be141a896c61d846db58.jpg"
+}
