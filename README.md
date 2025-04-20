@@ -101,6 +101,15 @@ npm run dev
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+graph TD
+    A[User] -->|Request| B[PokemonInfo App]
+    B -->|Fetch Data| C[PokeAPI]
+    C -->|JSON Response| B
+    B -->|Display| D[UI Components]
+    D --> E[Pokemon Details]
+    D --> F[Pokemon Stats]
+    D --> G[Pokemon Sprites]
+
 ## 🤝 Contributing
 
 1. Fork the Project
