@@ -209,7 +209,9 @@ export default function Home() {
             {aiData?.evolution && (
               <div className='mb-6'>
                 <h2 className='font-bold text-lg mb-2'>Evolution</h2>
-                <p className='text-gray-700'>{aiData.evolution}</p>
+                <p className='text-gray-700'>Stage: {aiData.evolution.stage}</p>
+                <p className='text-gray-700'>Pre-Evolution: {aiData.evolution.pre_evolution || 'None'}</p>
+                <p className='text-gray-700'>Next Evolution: {aiData.evolution.next_evolution || 'None'}</p>
               </div>
             )}
 
