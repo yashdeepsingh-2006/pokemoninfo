@@ -3,8 +3,11 @@
 import React, { useState } from 'react'
 import { useSearch } from '../context/SearchContext'
 import { getPokemonSuggestion } from '../utils/ai'
+import { useRouter } from 'next/navigation'
 
 export default function Search() {
+
+  const router = useRouter();
   const { setSearchQuery } = useSearch();
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,6 +22,12 @@ export default function Search() {
     if (e.key === 'Enter') {
       setLoading(true);
       try {
+        // Check for easter egg keyword
+        if (inputValue.toLowerCase() === 'musalmon') {
+          router.push('/direct/easter');
+          return;
+        }
+
         const aiResult = await getPokemonSuggestion(inputValue);
         if (aiResult) {
           setSuggestion(aiResult);
