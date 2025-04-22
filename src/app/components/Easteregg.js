@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import Search from './Search'; // Import the Search component
 
 const TYPE_COLORS = {
   normal: 'bg-gray-400',
@@ -57,6 +58,11 @@ export default function Easteregg() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col lg:flex-row items-center justify-center text-black p-4 lg:p-8">
+      {/* Search component for small screens */}
+      <div className="md:hidden mt-4">
+        <Search />
+      </div>
+
       {/* Left section - Pokemon Image */}
       <div className="lg:w-1/2 w-full max-w-xl lg:pr-8">
         <div className="bg-white rounded-3xl shadow-xl p-8 flex items-center justify-center">
