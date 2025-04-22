@@ -3,13 +3,14 @@
 "use client"
 
 import React from 'react';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Pokeinfo.All rights reserved.
+          &copy; {new Date().getFullYear()} Pokeinfo. All rights reserved.
         </p>
         <div className="flex justify-center space-x-4 mt-2">
           <a href="https://github.com/yashdeepsingh2006" className="hover:text-gray-400">Yashdeep Singh</a>
@@ -18,9 +19,11 @@ export default function Footer() {
           <a href="https://github.com/Tarshit-Gupta" className="hover:text-gray-400">Tarshit Gupta</a>
           <a href="https://github.com/rehankhanchi" className="hover:text-gray-400">Rehan Khanchi</a>
         </div>
-        <div className="mt-2">
-          <a href="direct/about" className="hover:text-gray-400 px-2.5">About</a>
-          <a href="direct/contact" className="hover:text-gray-400 px-2.5">Contact Us</a>
+
+        <div className="mt-2 space-x-4">
+          <Link href="/direct/about" className="hover:text-gray-400">About</Link>
+          <Link href="/direct/contact" className="hover:text-gray-400">Contact Us</Link>
+
         </div>
       </div>
     </footer>
