@@ -22,6 +22,7 @@ export default function Search() {
     if (e.key === 'Enter') {
       setLoading(true);
       try {
+        router.push('/');
         // Check for easter egg keyword
         if (inputValue.toLowerCase() === 'musalmon') {
           router.push('/direct/easter');
