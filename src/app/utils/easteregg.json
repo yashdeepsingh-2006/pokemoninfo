@@ -9,7 +9,7 @@
       { "pokemon": "Geodude", "level": 12 },
       { "pokemon": "Onix", "level": 14 }
     ],
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXw9p1QM6K9jiphKlHlVNoByZ5Jpx2dmz5ICHHNTPhfY0LrKMwffdykd6-iL1jC3BwEQY&usqp=CAU"
+    "image": "https://i.pinimg.com/736x/eb/a0/e6/eba0e6c1b93853f44eae21a7a26656db.jpg"
   },
   {
     "name": "Misty",
@@ -21,7 +21,7 @@
       { "pokemon": "Staryu", "level": 18 },
       { "pokemon": "Starmie", "level": 21 }
     ],
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjYg0QxP4yB6a2ZogjCn6UVg5o8EX_whCzDvnxInu0Zm4ggGSM2Aj0W7Au7n3QiiclmkQ&usqp=CAU"
+    "image": "https://i.pinimg.com/736x/b9/a4/12/b9a4122a607f289096039de228deb840.jpg"
   },
   {
     "name": "Ash",
@@ -35,7 +35,7 @@
       { "pokemon": "Bulbasaur", "level": 45 },
       { "pokemon": "Squirtle", "level": 44 }
     ],
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2VgdY2z5WLh3FXL8eqLh9Mymm9pZq9QwuQ&s"
+    "image": "https://i.pinimg.com/736x/6e/63/ae/6e63ae6c0c3aae24f2758da94e99397b.jpg"
   },
   {
     "name": "May",
@@ -119,7 +119,7 @@
     "location": "Vaniville Town",
     "description": "Grace is Serena's mother and a former Rhyhorn racer. She is supportive of Serena's journey as a Pokémon Trainer.",
     "team": [],
-    "image": "https://img.wattpad.com/1145488b356a7b314a767c2549f20e53b8d5245b/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f374b7478546765764a56703562673d3d2d313139313936313038322e313664353736373333373532636661303434363838333233393538362e6a7067?s=fit&w=720&h=720"
+    "image": "https://i.pinimg.com/736x/e5/82/98/e5829862a2e77be4cf2547ebeca72540.jpg"
   },
   {
     "name": "Skyla",
