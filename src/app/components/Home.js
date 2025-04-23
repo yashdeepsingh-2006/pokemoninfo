@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearch } from '../context/SearchContext'
 import { getPokemonSuggestion } from '../utils/ai'
 import Welcome from './Welcome'
+import Loading from './Loader';
 
 // Add this utility function after imports
 const formatPokemonName = (name) => {
@@ -70,7 +71,7 @@ const NotFoundMessage = () => (
 );
 
 export default function Home() {
-  const { searchQuery, pokemonData, setPokemonData, setLoading, setError } = useSearch();
+  const { searchQuery, pokemonData, setPokemonData, loading, setLoading, setError } = useSearch();
   const [aiData, setAiData] = useState(null);
   const [activeView, setActiveView] = useState('official');
 
@@ -111,6 +112,10 @@ export default function Home() {
 
     fetchData();
   }, [searchQuery]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (!searchQuery) {
     return <Welcome />;
