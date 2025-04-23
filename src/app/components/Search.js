@@ -5,6 +5,7 @@ import { useSearch } from '../context/SearchContext'
 import { getPokemonSuggestion } from '../utils/ai'
 import { useRouter } from 'next/navigation'
 import characterData from '../utils/easteregg.json'
+import Loading from './Loader';
 
 export default function Search() {
 
@@ -73,8 +74,10 @@ export default function Search() {
     <div className="flex flex-col items-center gap-2">
       <div className="relative lg:mr-16">
         <input
-          placeholder="Search Pokémon..."
-          className="input shadow-lg text-black bg-white border focus:border border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-64 md:focus:w-96 outline-none"
+          placeholder="Search Pokémon"
+          className={`input shadow-lg text-black bg-white border focus:border border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-64 md:focus:w-96 outline-none ${
+            loading ? 'opacity-50' : ''
+          }`}
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
@@ -92,5 +95,5 @@ export default function Search() {
         )}
       </div>
     </div>
-  )
+  );
 }

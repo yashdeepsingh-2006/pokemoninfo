@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearch } from '../context/SearchContext';
 import characterData from '../utils/easteregg.json';
+import Loading from './Loader';
 
 const TYPE_COLORS = {
   normal: 'bg-gray-400',
@@ -33,38 +34,42 @@ const TYPE_COLORS = {
 export default function Easteregg() {
   const { searchQuery } = useSearch();
   const [activeCharacter, setActiveCharacter] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (searchQuery) {
-      // Clean and normalize the search query
-      const normalizedQuery = searchQuery.toLowerCase().trim();
+    async function fetchCharacter() {
+      if (!searchQuery) return;
       
-      // Find character with fuzzy matching
-      const foundCharacter = characterData.find(char => {
-        const charName = char.name.toLowerCase();
-        // Check for exact match
-        if (charName === normalizedQuery) return true;
-        // Check for partial match at start
-        if (charName.startsWith(normalizedQuery)) return true;
-        // Check if query is at least 3 chars and matches 80% of name
-        if (normalizedQuery.length >= 3 && charName.includes(normalizedQuery)) return true;
-        return false;
-      });
+      setLoading(true);
+      try {
+        const normalizedQuery = searchQuery.toLowerCase().trim();
+        const foundCharacter = characterData.find(char => {
+          const charName = char.name.toLowerCase();
+          if (charName === normalizedQuery) return true;
+          if (charName.startsWith(normalizedQuery)) return true;
+          if (normalizedQuery.length >= 3 && charName.includes(normalizedQuery)) return true;
+          return false;
+        });
 
-      console.log("Search query:", normalizedQuery);
-      console.log("Found character:", foundCharacter);
-
-      if (foundCharacter) {
-        setActiveCharacter(foundCharacter);
-      } else {
+        if (foundCharacter) {
+          setActiveCharacter(foundCharacter);
+        } else {
+          setActiveCharacter(null);
+        }
+      } catch (error) {
+        console.error("Error finding character:", error);
         setActiveCharacter(null);
+      } finally {
+        setLoading(false);
       }
-    } else {
-      setActiveCharacter(null);
     }
+
+    fetchCharacter();
   }, [searchQuery]);
 
-  console.log("Active character:", activeCharacter);
+  if (loading) {
+    return <Loading />;
+  }
 
   if (!activeCharacter) {
     return (
@@ -76,9 +81,6 @@ export default function Easteregg() {
       </div>
     );
   }
-
-  console.log(activeCharacter)
-  console.log(activeCharacter.role)
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center text-black p-4 lg:p-8">
