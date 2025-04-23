@@ -3,8 +3,12 @@
 import React, { useState } from 'react'
 import { useSearch } from '../context/SearchContext'
 import { getPokemonSuggestion } from '../utils/ai'
+import { useRouter } from 'next/navigation'
+import characterData from '../utils/easteregg.json'
 
 export default function Search() {
+
+  const router = useRouter();
   const { setSearchQuery } = useSearch();
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,13 +23,43 @@ export default function Search() {
     if (e.key === 'Enter') {
       setLoading(true);
       try {
-        const aiResult = await getPokemonSuggestion(inputValue);
+        const searchTerm = inputValue.trim().toLowerCase();
+        
+        // Check if input starts with "/ch"
+        if (searchTerm.startsWith('/ch')) {
+          // Remove "/ch" prefix for character search
+          const characterName = searchTerm.slice(3).trim();
+          
+          // Look for character match
+          const easterEggCharacter = characterData.find(char => {
+            const charName = char.name.toLowerCase();
+            return charName === characterName || 
+                   charName.startsWith(characterName) || 
+                   (characterName.length >= 3 && charName.includes(characterName));
+          });
+
+          if (easterEggCharacter) {
+            console.log("Found character:", easterEggCharacter.name);
+            setSearchQuery(easterEggCharacter.name.toLowerCase());
+            router.push('/direct/easter');
+            return;
+          }
+        }
+
+        // If not a character search or no character found, proceed with Pokemon search
+        console.log("Searching for Pokemon:", searchTerm);
+        router.push('/');
+        
+        const aiResult = await getPokemonSuggestion(searchTerm);
         if (aiResult) {
+          console.log("AI suggested Pokemon:", aiResult.name);
           setSuggestion(aiResult);
           setSearchQuery(aiResult.name.toLowerCase());
         } else {
-          setSearchQuery(inputValue.toLowerCase());
+          console.log("Using original search term:", searchTerm);
+          setSearchQuery(searchTerm);
         }
+
       } catch (error) {
         console.error("Search error:", error);
         setSearchQuery(inputValue.toLowerCase());
