@@ -100,7 +100,7 @@ export default function Easteregg() {
             <div className="space-y-4">
               <div>
                 <h2 className="font-bold mb-2">Role</h2>
-                <span className={${TYPE_COLORS[activeCharacter.role.toLowerCase()]} text-white px-3 py-1 rounded-full text-sm}>
+                <span className={`${TYPE_COLORS[activeCharacter.role.toLowerCase()]} text-white px-3 py-1 rounded-full text-sm`}>
                   {activeCharacter.role}
                 </span>
               </div>
@@ -136,7 +136,7 @@ export default function Easteregg() {
                     {activeCharacter.type_specialty.map((type, index) => (
                       <span
                         key={index}
-                        className={${TYPE_COLORS[type.toLowerCase()]} text-white px-3 py-1 rounded-full text-sm}
+                        className={`${TYPE_COLORS[type.toLowerCase()]} text-white px-3 py-1 rounded-full text-sm`}
                       >
                         {type}
                       </span>
