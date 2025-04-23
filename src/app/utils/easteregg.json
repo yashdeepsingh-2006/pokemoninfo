@@ -1,23 +1,227 @@
-{
-    "name": "muslmon",
-    "type": ["fire", "flying", "poison"],
-    "abilities": ["Levitate", "blast Shield"],
-    "base_stats": {
-      "hp": 80,
-      "attack": 30,
-      "defense": 100,
-      "special_attack": 200,
-      "special_defense": 90,
-      "speed": 100
-    },
-    "height": 1.5,
-    "weight": 56.5,
-    "description": "muslmon is a mystical Pokémon that soars through the skies, using its psychic powers to calm storms and protect its habitat.",
-    "evolution": {
-      "stage": "2nd stage",
-      "pre_evolution": "helimulla",
-      "next_evolution": null
-    },
-    "moves": ["Psychic", "building Slash", "timebomb", "backflip"],
-    "image": "https://i.pinimg.com/736x/10/e0/a5/10e0a55ee5a2be141a896c61d846db58.jpg"
-}
+[
+  {
+    "name": "Brock",
+    "role": "Gym Leader",
+    "type_specialty": ["Rock"],
+    "location": "Pewter City Gym",
+    "description": "Brock is the Pewter City Gym Leader and specializes in Rock-type Pokémon. He is known for his calm demeanor and strong sense of responsibility.",
+    "team": [
+      { "pokemon": "Geodude", "level": 12 },
+      { "pokemon": "Onix", "level": 14 }
+    ],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXw9p1QM6K9jiphKlHlVNoByZ5Jpx2dmz5ICHHNTPhfY0LrKMwffdykd6-iL1jC3BwEQY&usqp=CAU"
+  },
+  {
+    "name": "Misty",
+    "role": "Gym Leader",
+    "type_specialty": ["Water"],
+    "location": "Cerulean City Gym",
+    "description": "Misty is the Cerulean City Gym Leader and specializes in Water-type Pokémon. She is a strong and confident trainer with a passion for aquatic Pokémon.",
+    "team": [
+      { "pokemon": "Staryu", "level": 18 },
+      { "pokemon": "Starmie", "level": 21 }
+    ],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjYg0QxP4yB6a2ZogjCn6UVg5o8EX_whCzDvnxInu0Zm4ggGSM2Aj0W7Au7n3QiiclmkQ&usqp=CAU"
+  },
+  {
+    "name": "Ash",
+    "role": "Trainer",
+    "type_specialty": ["Varied"],
+    "location": "Pallet Town",
+    "description": "Ash is a Pokémon Trainer from Pallet Town who dreams of becoming a Pokémon Master. He is known for his determination and strong bond with his Pokémon.",
+    "team": [
+      { "pokemon": "Pikachu", "level": 50 },
+      { "pokemon": "Charizard", "level": 48 },
+      { "pokemon": "Bulbasaur", "level": 45 },
+      { "pokemon": "Squirtle", "level": 44 }
+    ],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe2VgdY2z5WLh3FXL8eqLh9Mymm9pZq9QwuQ&s"
+  },
+  {
+    "name": "May",
+    "role": "Trainer",
+    "type_specialty": ["Varied"],
+    "location": "Petalburg City",
+    "description": "May is a Pokémon Trainer and Coordinator from Petalburg City. She dreams of becoming a top Pokémon Coordinator and is known for her cheerful and adventurous personality.",
+    "team": [
+      { "pokemon": "Torchic", "level": 15 },
+      { "pokemon": "Beautifly", "level": 18 },
+      { "pokemon": "Skitty", "level": 16 },
+      { "pokemon": "Bulbasaur", "level": 17 }
+    ],
+    "image": "https://i.pinimg.com/736x/75/fd/ec/75fdec6105a094a536a7bbc06fa95501.jpg"
+  },
+  {
+    "name": "Dawn",
+    "role": "Trainer",
+    "type_specialty": ["Varied"],
+    "location": "Twinleaf Town",
+    "description": "Dawn is a Pokémon Trainer and Coordinator from Twinleaf Town. She is known for her determination and passion for Pokémon Contests.",
+    "team": [
+      { "pokemon": "Piplup", "level": 15 },
+      { "pokemon": "Buneary", "level": 14 },
+      { "pokemon": "Pachirisu", "level": 16 }
+    ],
+    "image": "https://i.pinimg.com/736x/28/ff/c1/28ffc179c72550719cba8ca086b14f45.jpg"
+  },
+  {
+    "name": "Serena",
+    "role": "Trainer",
+    "type_specialty": ["Varied"],
+    "location": "Vaniville Town",
+    "description": "Serena is a Pokémon Trainer and Performer from Vaniville Town. She dreams of becoming a Pokémon Queen and is known for her elegance and charm.",
+    "team": [
+      { "pokemon": "Fennekin", "level": 16 },
+      { "pokemon": "Pancham", "level": 18 },
+      { "pokemon": "Sylveon", "level": 20 }
+    ],
+    "image": "https://i.pinimg.com/736x/98/e5/5d/98e55ddee94271e3a78558c90c8a310c.jpg"
+  },
+  {
+    "name": "Cynthia",
+    "role": "Champion",
+    "type_specialty": ["Varied"],
+    "location": "Sinnoh Region",
+    "description": "Cynthia is the Champion of the Sinnoh Region. She is known for her intelligence, strength, and her iconic Garchomp.",
+    "team": [
+      { "pokemon": "Garchomp", "level": 66 },
+      { "pokemon": "Lucario", "level": 63 },
+      { "pokemon": "Milotic", "level": 63 },
+      { "pokemon": "Roserade", "level": 60 }
+    ],
+    "image": "https://i.pinimg.com/736x/9a/f8/ee/9af8eee4e97fb4f70fdcdf9caa9c871e.jpg"
+  },
+  {
+    "name": "Nurse Joy",
+    "role": "Pokémon Center Nurse",
+    "type_specialty": ["Healing"],
+    "location": "Various Pokémon Centers",
+    "description": "Nurse Joy is a kind and caring nurse who heals Pokémon at Pokémon Centers across the regions.",
+    "team": [],
+    "image": "https://i.pinimg.com/736x/b8/c7/f6/b8c7f615e3c9ec1c8703d46e174300f7.jpg"
+  },
+  {
+    "name": "Whitney",
+    "role": "Gym Leader",
+    "type_specialty": ["Normal"],
+    "location": "Goldenrod City Gym",
+    "description": "Whitney is the Goldenrod City Gym Leader and specializes in Normal-type Pokémon. She is known for her infamous Miltank.",
+    "team": [
+      { "pokemon": "Clefairy", "level": 18 },
+      { "pokemon": "Miltank", "level": 20 }
+    ],
+    "image": "https://i.pinimg.com/736x/9d/60/d0/9d60d04080c149c81e2674557db97a2f.jpg"
+  },
+  {
+    "name": "Grace",
+    "role": "Trainer",
+    "type_specialty": ["Racing"],
+    "location": "Vaniville Town",
+    "description": "Grace is Serena's mother and a former Rhyhorn racer. She is supportive of Serena's journey as a Pokémon Trainer.",
+    "team": [],
+    "image": "https://img.wattpad.com/1145488b356a7b314a767c2549f20e53b8d5245b/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f374b7478546765764a56703562673d3d2d313139313936313038322e313664353736373333373532636661303434363838333233393538362e6a7067?s=fit&w=720&h=720"
+  },
+  {
+    "name": "Skyla",
+    "role": "Gym Leader",
+    "type_specialty": ["Flying"],
+    "location": "Mistralton City Gym",
+    "description": "Skyla is the Mistralton City Gym Leader and specializes in Flying-type Pokémon. She is also a skilled pilot.",
+    "team": [
+      { "pokemon": "Swoobat", "level": 33 },
+      { "pokemon": "Unfezant", "level": 35 },
+      { "pokemon": "Swanna", "level": 37 }
+    ],
+    "image": "https://i.pinimg.com/736x/f8/b4/fb/f8b4fb539adcef426896ae8e48b28622.jpg"
+  },
+  {
+    "name": "Jessie",
+    "role": "Team Rocket Member",
+    "type_specialty": ["Varied"],
+    "location": "Team Rocket",
+    "description": "Jessie is a member of Team Rocket, known for her dramatic flair and determination to capture rare Pokémon.",
+    "team": [
+      { "pokemon": "Wobbuffet", "level": 30 },
+      { "pokemon": "Seviper", "level": 28 }
+    ],
+    "image": "https://i.pinimg.com/736x/b1/cb/ed/b1cbed379cdd06a07c2e28e895c75143.jpg"
+  },
+  {
+    "name": "James",
+    "role": "Team Rocket Member",
+    "type_specialty": ["Varied"],
+    "location": "Team Rocket",
+    "description": "James is a member of Team Rocket, known for his loyalty to his Pokémon and his comedic personality.",
+    "team": [
+      { "pokemon": "Mime Jr.", "level": 28 },
+      { "pokemon": "Cacnea", "level": 30 }
+    ],
+    "image": "https://i.pinimg.com/736x/d4/fa/f5/d4faf54c974f55aa06d4d8cb822d92f0.jpg"
+  },
+  {
+    "name": "Lusamine",
+    "role": "Aether Foundation President",
+    "type_specialty": ["Varied"],
+    "location": "Aether Paradise",
+    "description": "Lusamine is the president of the Aether Foundation. She is known for her obsession with Ultra Beasts.",
+    "team": [
+      { "pokemon": "Clefable", "level": 50 },
+      { "pokemon": "Lilligant", "level": 50 },
+      { "pokemon": "Milotic", "level": 50 }
+    ],
+    "image": "https://i.pinimg.com/736x/c7/a6/f5/c7a6f5a543c989e4f6c6f2e1ff6b38e0.jpg"
+  },
+  {
+    "name": "Elesa",
+    "role": "Gym Leader",
+    "type_specialty": ["Electric"],
+    "location": "Nimbasa City Gym",
+    "description": "Elesa is the Nimbasa City Gym Leader and specializes in Electric-type Pokémon. She is also a famous model.",
+    "team": [
+      { "pokemon": "Emolga", "level": 25 },
+      { "pokemon": "Zebstrika", "level": 27 }
+    ],
+    "image": "https://i.pinimg.com/736x/41/7a/b0/417ab0fac782e8ac8080a8da3fe9ed73.jpg"
+  },
+  {
+    "name": "Nessa",
+    "role": "Gym Leader",
+    "type_specialty": ["Water"],
+    "location": "Hulbury Gym",
+    "description": "Nessa is the Hulbury Gym Leader and specializes in Water-type Pokémon. She is also a model and a strong battler.",
+    "team": [
+      { "pokemon": "Goldeen", "level": 22 },
+      { "pokemon": "Drednaw", "level": 24 }
+    ],
+    "image": "https://i.pinimg.com/736x/72/a7/d2/72a7d2b0752cada2bae19a594387d0c3.jpg"
+  },
+  {
+    "name": "Professor Ivy",
+    "role": "Professor",
+    "type_specialty": ["Research"],
+    "location": "Valencia Island",
+    "description": "Professor Ivy is a Pokémon Professor who studies Pokémon in the Orange Archipelago.",
+    "team": [],
+    "image": "https://i.pinimg.com/736x/1a/35/22/1a35220e2aaebeea9dc1adce5995ed6a.jpg"
+  },
+  {
+    "name": "Delia Ketchum",
+    "role": "Ash's Mother",
+    "type_specialty": ["Support"],
+    "location": "Pallet Town",
+    "description": "Delia Ketchum is Ash's mother. She is supportive of Ash's journey and is known for her kind and caring nature.",
+    "team": [],
+    "image": "https://i.pinimg.com/736x/07/12/d9/0712d980fee78d1df0107969c440e090.jpg"
+  },
+  {
+    "name": "Officer Jenny",
+    "role": "Police Officer",
+    "type_specialty": ["Law Enforcement"],
+    "location": "Various Cities",
+    "description": "Officer Jenny is a dedicated police officer who works to maintain peace and order in the Pokémon world.",
+    "team": [
+      { "pokemon": "Growlithe", "level": 25 }
+    ],
+    "image": "https://i.pinimg.com/736x/da/0f/ae/da0fae06607d1af844517cc0b28e8ad4.jpg"
+  }
+]
