@@ -44,7 +44,7 @@ export async function getPokemonSuggestion(userInput) {
 
 export async function getPokemonDescription(pokemonName) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = `
       Provide a brief, three-sentence description of the Pokémon "${pokemonName}".
@@ -59,4 +59,5 @@ export async function getPokemonDescription(pokemonName) {
     console.error("AI description error:", error);
     return null;
   }
+
 }
