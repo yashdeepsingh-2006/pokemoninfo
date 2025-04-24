@@ -125,6 +125,8 @@ export default function Home() {
     return <NotFoundMessage />;
   }
 
+  console.log(aiData)
+
   return (
     <div className='min-h-screen flex flex-col lg:flex-row items-center justify-center text-black p-4 lg:p-8'>
       {/* Left section - Pokemon Image */}
@@ -212,16 +214,11 @@ export default function Home() {
 
             {/* Evolution Chain */}
             {aiData?.evolution && (
-              <div className='mb-6'>
-                <h2 className='font-bold text-lg mb-2'>Evolution</h2>
-                <p className='text-gray-700'>Stage: {aiData.evolution.stage}</p>
-                <p className='text-gray-700'>Pre-Evolution: {aiData.evolution.pre_evolution || 'None'}</p>
-                <p className='text-gray-700'>Next Evolution: {aiData.evolution.next_evolution || 'None'}</p>
-              </div>
+              <div>{aiData.evolution} </div>
             )}
 
             {/* Type and Abilities */}
-            <div className='grid grid-cols-2 gap-4 mb-6'>
+            <div className='grid grid-cols-2 gap-4 my-6'>
               <div className='bg-gray-50 p-4 rounded-xl'>
                 <h2 className='font-bold mb-2'>Type</h2>
                 <div className='flex gap-2 flex-wrap'>
