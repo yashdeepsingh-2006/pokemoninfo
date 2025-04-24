@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearch } from '../context/SearchContext';
 import characterData from '../utils/easteregg.json';
 import Loading from './Loader';
+import Search from './Search';  // Add this import
 
 const TYPE_COLORS = {
   normal: 'bg-gray-400',
@@ -84,6 +85,11 @@ export default function Easteregg() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center text-black p-4 lg:p-8">
+      {/* Search Bar for Small Screens */}
+      <div className="w-full max-w-4xl mt-16 mb-6 lg:hidden">
+        <Search />
+      </div>
+
       {/* Character Details */}
       <div className="w-full max-w-4xl bg-white rounded-3xl shadow-xl p-6">
         <div className="grid md:grid-cols-2 gap-8">
