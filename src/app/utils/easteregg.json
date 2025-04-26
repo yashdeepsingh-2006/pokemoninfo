@@ -223,5 +223,34 @@
       { "pokemon": "Growlithe", "level": 25 }
     ],
     "image": "https://i.pinimg.com/736x/da/0f/ae/da0fae06607d1af844517cc0b28e8ad4.jpg"
-  }
+  },
+  {
+    "name": "Professor Oak",
+    "role": "Professor",
+    "type_specialty": ["Research"],
+    "location": "Pallet Town",
+    "description": "Professor Oak is a renowned Pokémon Professor who provides guidance to new trainers and studies Pokémon behavior and habitats.",
+    "team": [
+        { "pokemon": "Pidgey", "level": 5 },
+        { "pokemon": "Bulbasaur", "level": 5 },
+        { "pokemon": "Charmander", "level": 5 },
+        { "pokemon": "Squirtle", "level": 5 }
+    ],
+    "image": "https://i.pinimg.com/736x/cb/ae/a1/cbaea15b7acd68e50a3cb84ab429f89e.jpg"
+},
+{
+  "name": "Gary Oak",
+  "role": "Trainer",
+  "type_specialty": ["Varied"],
+  "location": "Pallet Town",
+  "description": "Gary Oak is a skilled Pokémon Trainer and Professor Oak's grandson. He is known for his rivalry with Ash and his determination to be the best.",
+  "team": [
+      { "pokemon": "Blastoise", "level": 50 },
+      { "pokemon": "Arcanine", "level": 48 },
+      { "pokemon": "Nidoking", "level": 47 },
+      { "pokemon": "Electivire", "level": 46 },
+      { "pokemon": "Umbreon", "level": 45 }
+  ],
+  "image": "https://i.pinimg.com/736x/34/7e/9e/347e9e9e2862ec7f7b0cefcb0440645f.jpg"
+}
 ]
