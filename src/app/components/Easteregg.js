@@ -103,12 +103,12 @@ export default function Easteregg() {
           </div>
 
           {/* Info Section */}
-          <div className="flex flex-col">
+          <div className="flex flex-col">                                                                                                                                                                                                                                           
             <h1 className="text-3xl font-bold mb-4">{activeCharacter.name}</h1>
             <div className="space-y-4">
               <div>
                 <h2 className="font-bold mb-2">Role</h2>
-                <span className={`${TYPE_COLORS[activeCharacter.role.toLowerCase()]} text-white px-3 py-1 rounded-full text-sm`}>
+                <span className={`${TYPE_COLORS[activeCharacter.role.toLowerCase()]} text-black  py-1 rounded-full text-sm`}>
                   {activeCharacter.role}
                 </span>
               </div>
