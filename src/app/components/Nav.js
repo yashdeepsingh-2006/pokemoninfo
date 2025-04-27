@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Search from './Search'
 
 export default function Nav() {
@@ -11,13 +12,15 @@ export default function Nav() {
 
                 {/* div containing logo */}
                 <div className='w-full ml-10 mt-2'>
-                    <Image
-                        className='h-10 w-auto'
-                        height={80}
-                        width={110}
-                        src={"/logo.png"}
-                        alt='Logo-mintify'
-                    />
+                    <Link href="/">
+                        <Image
+                            className='h-10 w-auto cursor-pointer hover:opacity-80 transition-opacity'
+                            height={80}
+                            width={110}
+                            src={"/logo.png"}
+                            alt='Logo-mintify'
+                        />
+                    </Link>
                 </div>
 
                 {/* div containing search bar */}
