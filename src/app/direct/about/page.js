@@ -39,13 +39,62 @@ export default function About() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <TeamMember name="Yashdeep Singh" role="Project Lead & Frontend Development" />
-            <TeamMember name="Om Kamboj" role="Backend Integration" />
-            <TeamMember name="Rakshit Sharma" role="UI/UX Design" />
-            <TeamMember name="Rehan Khanchi" role="Frontend Development" />
-            <TeamMember name="Tarshit Gupta" role="API Integration" />
+          <h2 className="text-2xl font-semibold mb-6">Our Team</h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <TeamMember
+              name="Yashdeep Singh"
+              role="Project Lead & Core Development"
+              contributions={[
+                "Initial project setup",
+                "AI integration with Gemini API",
+                "Core features implementation",
+                "Bug fixes and maintenance"
+              ]}
+            />
+            
+            <TeamMember
+              name="Om Kamboj"
+              role="Backend & Integration"
+              contributions={[
+                "Contact and About pages",
+                "Easter egg component",
+                "Data restructuring",
+                "Evolution data management"
+              ]}
+            />
+            
+            <TeamMember
+              name="Rakshit Sharma"
+              role="UI/UX & Frontend Features"
+              contributions={[
+                "Home component updates",
+                "Loading states implementation",
+                "Frontend features enhancement",
+                "Global styling and layouts"
+              ]}
+            />
+            
+            <TeamMember
+              name="Rehan Khanchi"
+              role="Search & Navigation"
+              contributions={[
+                "Search functionality",
+                "Navigation components",
+                "Character database",
+                "Documentation (README)"
+              ]}
+            />
+            
+            <TeamMember
+              name="Tarshit Gupta"
+              role="Frontend & Asset Management"
+              contributions={[
+                "File structure optimization",
+                "Navigation bar updates",
+                "Global CSS styling",
+                "Asset management"
+              ]}
+            />
           </div>
         </section>
 
@@ -60,15 +109,20 @@ export default function About() {
         </section>
       </div>
     </div>
-  )
+  );
 }
 
 // Team Member Component
-function TeamMember({ name, role }) {
+function TeamMember({ name, role, contributions }) {
   return (
-    <div className="bg-gray-50 p-4 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold">{name}</h3>
-      <p className="text-gray-600">{role}</p>
+    <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+      <h3 className="text-xl font-semibold mb-2">{name}</h3>
+      <p className="text-gray-600 mb-4">{role}</p>
+      <ul className="list-disc list-inside text-gray-700 space-y-1">
+        {contributions.map((contribution, index) => (
+          <li key={index}>{contribution}</li>
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
